@@ -32,7 +32,7 @@ export default function MainApp() {
   if (savedConsent === 'accept' && savedSelectedOption) {
     setSelectedOption(savedSelectedOption);
   } else if (savedConsent === 'accept' && !savedSelectedOption) {
-    setSelectedOption('lightblue');  // or your preferred default color
+    setSelectedOption(savedSelectedOption);  // or your preferred default color
   } else {
     setSelectedOption(''); // No color or clear selection if consent rejected or null
   }

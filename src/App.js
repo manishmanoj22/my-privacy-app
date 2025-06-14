@@ -127,14 +127,17 @@ function MyPrivacyApp({ consent, bannerstate, handleConsent, handleBanner, loade
     }
   }, [consent, bannerstate]);
 
-  useEffect(() => {
-    if (consent === 'accept' && selectedOption) {
-      document.cookie = `backgroundColor=${selectedOption}; path=/; max-age=31536000`;
-    } else {
-      document.cookie = "backgroundColor=; path=/; max-age=0";
-    }
-  }, [consent, selectedOption]);
+useEffect(() => {
+  if (consent === 'accept' && selectedOption) {
+    document.cookie = `backgroundColor=${selectedOption}; path=/; max-age=31536000`;
+  }
+}, [consent, selectedOption]);
 
+useEffect(() => {
+  if (consent === 'reject') {
+    document.cookie = "backgroundColor=; path=/; max-age=0";
+  }
+}, [consent]);
 
 
   let ipdetail = null;
